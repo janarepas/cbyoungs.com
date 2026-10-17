@@ -9,3 +9,8 @@ footer{background:var(--paper);border-top:1px solid #ffffff26}
 .ticker,.value-number{font-weight:800}
 @media(max-width:760px){body{padding-left:8px}body::before{width:8px}h1{font-size:clamp(43px,10.5vw,80px)}.email{font-size:clamp(19px,6vw,25px)}}
 @media(max-width:760px){.values{grid-template-columns:repeat(3,minmax(0,1fr))}.values>div{min-width:0}.value-number{font-size:clamp(16px,4.7vw,21px)}.moments h2,.join h2{font-size:clamp(37px,10.5vw,49px)}.about-copy,.join-grid>div{min-width:0}.section-label>span{min-width:0}}
+/* Poster-style titles and square email frame. */
+h1,h2,h3,.value-number{font-family:var(--font);font-weight:900;text-transform:uppercase}
+.email{border:2px solid var(--red);border-radius:0;padding:18px 20px;gap:12px;font-size:clamp(17px,1.9vw,28px);letter-spacing:-.5px;transition:background .2s,color .2s}
+.email:hover{background:var(--red);color:#fff}
+@media(max-width:760px){.email{padding:16px 12px;font-size:clamp(17px,5.5vw,25px)}.email span{font-size:25px}}
