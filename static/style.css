@@ -39,3 +39,9 @@ footer>span,.footer-brand>span,footer>a:last-child{color:#ffffffdc}
 footer>a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px}
 /* Adobe Fonts: Nexa Rust Slab Black 2 for the large display titles. */
 h1,h2,.hero-content h1,.value-number{font-family:"nexa-rust-slab-black-2",var(--font);font-weight:900;font-style:normal;text-transform:uppercase}
+
+/* Center the original poster introduction below its heading. */
+.about-grid{grid-template-columns:minmax(0,1fr);gap:12px;text-align:center}
+.about-grid h2{margin-bottom:18px}
+.about-copy{width:100%;max-width:900px;margin-inline:auto;padding-top:0}
+.about-copy>p:not(.lead){margin-bottom:0;font-size:clamp(16px,1.7vw,23px);line-height:1.65}
