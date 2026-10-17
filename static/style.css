@@ -14,3 +14,12 @@ h1,h2,h3,.value-number{font-family:var(--font);font-weight:900;text-transform:up
 .email{border:0;background:var(--red);color:#fff;border-radius:0;padding:18px 20px;gap:12px;font-size:clamp(17px,1.9vw,28px);letter-spacing:-.5px;transition:background .2s,color .2s}
 .email:hover{background:#bb1625;color:#fff}
 @media(max-width:760px){.email{padding:16px 12px;font-size:clamp(17px,5.5vw,25px)}.email span{font-size:25px}}
+/* Center the header photograph and its introduction. */
+.hero{display:flex;align-items:center;justify-content:center}
+.hero-image{inset:0;width:100%;object-position:center center}
+.hero-shade{background:linear-gradient(180deg,#14161385,#14161399 55%,#141613e6)}
+.hero-content{width:100%;text-align:center;padding:70px 6% 110px}
+.hero-content .eyebrow{justify-content:center}
+.hero-content h1{font-family:var(--font);font-weight:900;text-transform:uppercase}
+.hero-copy{margin-left:auto;margin-right:auto}
+@media(max-width:760px){.hero-content{padding:40px 6% 100px}}
