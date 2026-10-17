@@ -68,26 +68,6 @@ footer>a:last-child{grid-column:3;grid-row:1;justify-self:end}
 /* Red join button, matching the sidebar palette. */
 .header .nav-cta{background:var(--red);color:#fff;border-color:var(--red)}
 .header .nav-cta:hover{background:var(--red);color:#fff;text-decoration:underline;text-underline-offset:4px}
-/* Native swipe and scroll snapping also work without JavaScript. */
-.carousel{min-width:0}
-.gallery{display:flex;position:relative;gap:0;grid-template-rows:none;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--red) #222;overscroll-behavior-x:contain}
-.gallery figure,.gallery .gallery-main{flex:0 0 100%;min-width:0;height:clamp(330px,44vw,620px);scroll-snap-align:start;scroll-snap-stop:always;grid-column:auto;grid-row:auto}
-.gallery figcaption{padding:36px}
-.gallery h3,.gallery-main h3{font-size:clamp(24px,3vw,42px)}
-.carousel-controls{display:flex;align-items:center;gap:18px;justify-content:center;margin-top:22px}
-.carousel-controls[hidden]{display:none}
-.carousel-controls button{font:inherit;color:#fff;cursor:pointer;border:1px solid #ffffff40;background:#000;width:46px;height:46px;display:grid;place-items:center;padding:0}
-.carousel-controls button:hover:not(:disabled){border-color:var(--red);background:var(--red)}
-.carousel-controls button:disabled{opacity:.3;cursor:default}
-.carousel-controls button:focus-visible,.gallery:focus-visible{outline:2px solid var(--green);outline-offset:4px}
-.carousel-dots{display:flex;gap:4px}
-.carousel-dots button{width:32px;height:40px;border:0;background:transparent}
-.carousel-dots button::before{content:"";width:7px;height:7px;border-radius:50%;background:#777}
-.carousel-dots button[aria-current]::before{background:var(--red)}
-.carousel-dots button:hover:not(:disabled){background:transparent}
-.carousel-status{font-size:12px;font-variant-numeric:tabular-nums;min-width:35px;text-align:center}
-@media(max-width:760px){.gallery figure,.gallery .gallery-main{height:390px}.gallery figcaption{padding:24px}.carousel-controls{gap:10px}.carousel-dots{gap:0}}
-
 /* Three-line red, white and green hero title. */
 #hero-title{font-size:clamp(48px,6vw,92px);line-height:1.08}
 #hero-title>span{display:block}
@@ -104,13 +84,13 @@ button,.button,.nav-cta,.email{border-radius:999px;text-transform:uppercase}
 nav a,footer>a:last-child{text-transform:uppercase}
 .button,.email{justify-content:center;gap:0}
 .email{font-size:clamp(15px,1.65vw,24px);padding:20px 16px;letter-spacing:0}
-.carousel-controls .carousel-prev,.carousel-controls .carousel-next{width:auto;min-width:84px;padding:0 18px;font-size:10px;font-weight:700;letter-spacing:.4px;border-radius:999px}
-.carousel-dots button{border-radius:999px}
+
+
 .join h2>span{display:block}
 .join h2>.join-title-red{color:var(--red)}
 .join h2>.join-title-white{color:#fff}
 .join h2>.join-title-green{color:var(--green)}
-@media(max-width:760px){.email{font-size:clamp(14px,4.4vw,21px)}.carousel-controls{gap:6px}.carousel-controls .carousel-prev,.carousel-controls .carousel-next{min-width:65px;padding:0 10px;font-size:9px}.carousel-dots button{width:26px}.header nav{gap:16px}}
+@media(max-width:760px){.email{font-size:clamp(14px,4.4vw,21px)}.header nav{gap:16px}}
 /* Decorative video stays behind a dark scrim and readable text. */
 .about{position:relative;isolation:isolate;overflow:hidden}
 .about-video{position:absolute;inset:0;z-index:-2;overflow:hidden;pointer-events:none;container-type:size;background:#000}
