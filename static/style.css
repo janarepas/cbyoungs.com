@@ -168,3 +168,7 @@ html,body{overscroll-behavior-y:none}
 .moments-heading h2>.moments-title-red{color:var(--red)}
 .moments-heading h2>.moments-title-white{color:#fff}
 .moments-heading h2>.moments-title-green{color:var(--green)}
+
+/* Solid round separators between the community values. */
+.ticker .ticker-dot{display:block;flex:0 0 14px;width:14px;height:14px;border-radius:50%;background:var(--red)}
+@media(max-width:760px){.ticker .ticker-dot{flex-basis:10px;width:10px;height:10px}}
