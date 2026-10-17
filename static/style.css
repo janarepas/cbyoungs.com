@@ -95,3 +95,6 @@ footer>a:last-child{grid-column:3;grid-row:1;justify-self:end}
 #hero-title>.title-white{color:#fff}
 #hero-title>.title-green{color:var(--green)}
 @media(max-width:760px){#hero-title{font-size:clamp(36px,9.4vw,64px)}.hero{min-height:710px;max-height:none;height:auto}.hero-content{padding-bottom:120px}}
+
+.hero-content .eyebrow{font-family:"nexa-rust-slab-black-2",var(--font);font-weight:900;font-size:clamp(12px,1.3vw,19px);letter-spacing:1.3px;line-height:1.5;flex-wrap:wrap}
+@media(max-width:760px){.hero-content .eyebrow{font-size:clamp(10px,2.8vw,15px);letter-spacing:.6px}}
