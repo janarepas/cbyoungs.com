@@ -7,6 +7,7 @@ cp static/style.css dist/static/style.css
 cp static/background-video.js dist/static/
 cp static/header-glass.js dist/static/
 cp static/scroll-effects.js dist/static/
+cp static/pyro-effect.js dist/static/
 cp static/*.svg dist/static/
 cp static/header-paint-red.png dist/static/
 cp static/*.webp dist/static/
