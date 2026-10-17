@@ -130,3 +130,10 @@ footer>span{font-family:"nexa-rust-slab-black-2",var(--font);font-weight:900;fon
 html{scroll-padding-top:140px}
 .header{--glass-progress:0;position:sticky;top:0;z-index:20;background:transparent}
 .header::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:rgba(0,0,0,calc(1 - var(--glass-progress)*.42));-webkit-backdrop-filter:blur(calc(var(--glass-progress)*22px));backdrop-filter:blur(calc(var(--glass-progress)*22px));border-bottom:1px solid rgba(255,255,255,calc(var(--glass-progress)*.14));box-shadow:0 8px 30px rgba(0,0,0,calc(var(--glass-progress)*.18))}
+
+/* Fixed viewport navigation, independent of the document scroll position. */
+html,body{overscroll-behavior-y:none}
+body{padding-top:104px}
+.header{position:fixed;top:0;left:18px;right:0}
+@media(max-width:1100px){body{padding-top:116px}}
+@media(max-width:760px){.header{left:8px}}
