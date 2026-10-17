@@ -4,6 +4,7 @@ cd "$(dirname "$0")/.."
 mkdir -p dist/static
 cp static/index.html dist/index.html
 cp static/style.css dist/static/style.css
+cp static/carousel.js dist/static/
 cp static/*.svg dist/static/
 cp static/header-paint-red.png dist/static/
 cp static/*.webp dist/static/
