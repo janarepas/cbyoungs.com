@@ -50,3 +50,6 @@ h1,h2,.hero-content h1,.value-number{font-family:"nexa-rust-slab-black-2",var(--
 .ticker{font-family:"nexa-rust-slab-black-shadow-2","nexa-rust-slab-black-2",var(--font);font-weight:900;font-size:clamp(15px,1.55vw,22px);padding-block:19px;gap:20px}
 .ticker i{font-size:20px}
 @media(max-width:760px){.ticker{font-size:17px;padding-block:16px;gap:18px}.ticker i{font-size:17px}}
+/* High-resolution red acrylic brushwork supplied as a transparent texture. */
+.header{background:transparent}
+.header::before{inset:0 0 -35px;height:auto;background:transparent url('/static/header-paint-red.png') center/100% 100% no-repeat;-webkit-mask:none;mask:none;filter:brightness(.87)}
