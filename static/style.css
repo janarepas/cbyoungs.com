@@ -45,3 +45,8 @@ h1,h2,.hero-content h1,.value-number{font-family:"nexa-rust-slab-black-2",var(--
 .about-grid h2{margin-bottom:18px}
 .about-copy{width:100%;max-width:900px;margin-inline:auto;padding-top:0}
 .about-copy>p:not(.lead){margin-bottom:0;font-size:clamp(16px,1.7vw,23px);line-height:1.65}
+
+/* Smaller shadow slab lettering, with separators only between words. */
+.ticker{font-family:"nexa-rust-slab-black-shadow-2","nexa-rust-slab-black-2",var(--font);font-weight:900;font-size:clamp(15px,1.55vw,22px);padding-block:19px;gap:20px}
+.ticker i{font-size:20px}
+@media(max-width:760px){.ticker{font-size:17px;padding-block:16px;gap:18px}.ticker i{font-size:17px}}
