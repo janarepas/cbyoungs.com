@@ -157,7 +157,7 @@ html,body{overscroll-behavior-y:none}
 /* Aligned cards with understated photo labels. */
 .gallery figure{display:flex;flex-direction:column}
 .gallery figcaption{flex:1}
-.gallery figcaption>span,.gallery-main figcaption>span{font-size:clamp(13.75px,1.1875vw,17.5px);letter-spacing:.8px;top:18px;left:20px;right:20px}
+.gallery figcaption>span,.gallery-main figcaption>span{font-size:clamp(11px,.95vw,14px);letter-spacing:.8px;top:18px;left:20px;right:20px}
 @media(max-width:760px){.gallery figcaption>span,.gallery-main figcaption>span{font-size:12px;top:18px;left:22px;right:22px}}
 
 /* Keep the closing invitation on its own single line. */
