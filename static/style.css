@@ -110,8 +110,8 @@ footer>span{font-family:"nexa-rust-slab-black-2",var(--font);font-weight:900;fon
 html{scroll-padding-top:140px}
 .header{position:relative;z-index:20;background:#000}
 /* The frost fades into the page instead of ending at the navigation edge. */
-.top-frost{position:fixed;top:0;left:18px;right:0;height:234px;z-index:19;pointer-events:none;opacity:var(--glass-progress,0);background:linear-gradient(180deg,#0008,transparent);-webkit-backdrop-filter:blur(28px);backdrop-filter:blur(28px);-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,.8) 48%,rgba(0,0,0,.35) 75%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,.8) 48%,rgba(0,0,0,.35) 75%,transparent 100%)}
-@media(max-width:760px){.top-frost{left:8px;height:201px}}
+.top-frost{position:fixed;top:0;left:18px;right:0;height:180px;z-index:19;pointer-events:none;opacity:var(--glass-progress,0);background:linear-gradient(180deg,#0008,transparent);-webkit-backdrop-filter:blur(28px);backdrop-filter:blur(28px);-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,.8) 48%,rgba(0,0,0,.35) 75%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,.8) 48%,rgba(0,0,0,.35) 75%,transparent 100%)}
+@media(max-width:760px){.top-frost{left:8px;height:155px}}
 
 /* Navigation stays in document flow; the frost is a separate overlay. */
 html,body{overscroll-behavior-y:none}
