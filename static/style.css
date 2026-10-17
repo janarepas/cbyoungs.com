@@ -98,3 +98,16 @@ footer>a:last-child{grid-column:3;grid-row:1;justify-self:end}
 
 .hero-content .eyebrow{font-family:"nexa-rust-slab-black-2",var(--font);font-weight:900;font-size:clamp(12px,1.3vw,19px);letter-spacing:1.3px;line-height:1.5;flex-wrap:wrap}
 @media(max-width:760px){.hero-content .eyebrow{font-size:clamp(10px,2.8vw,15px);letter-spacing:.6px}}
+
+/* Pill buttons without arrows, with uppercase labels. */
+button,.button,.nav-cta,.email{border-radius:999px;text-transform:uppercase}
+nav a,footer>a:last-child{text-transform:uppercase}
+.button,.email{justify-content:center;gap:0}
+.email{font-size:clamp(15px,1.65vw,24px);padding:20px 16px;letter-spacing:0}
+.carousel-controls .carousel-prev,.carousel-controls .carousel-next{width:auto;min-width:84px;padding:0 18px;font-size:10px;font-weight:700;letter-spacing:.4px;border-radius:999px}
+.carousel-dots button{border-radius:999px}
+.join h2>span{display:block}
+.join h2>.join-title-red{color:var(--red)}
+.join h2>.join-title-white{color:#fff}
+.join h2>.join-title-green{color:var(--green)}
+@media(max-width:760px){.email{font-size:clamp(14px,4.4vw,21px)}.carousel-controls{gap:6px}.carousel-controls .carousel-prev,.carousel-controls .carousel-next{min-width:65px;padding:0 10px;font-size:9px}.carousel-dots button{width:26px}.header nav{gap:16px}}
