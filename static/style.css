@@ -162,3 +162,9 @@ html,body{overscroll-behavior-y:none}
 
 /* Keep the closing invitation on its own single line. */
 .join h2>.join-title-green{font-size:.72em;letter-spacing:-.02em;white-space:nowrap}
+
+/* Three-line heading for the community photo stories. */
+.moments-heading h2>span{display:block}
+.moments-heading h2>.moments-title-red{color:var(--red)}
+.moments-heading h2>.moments-title-white{color:#fff}
+.moments-heading h2>.moments-title-green{color:var(--green)}
