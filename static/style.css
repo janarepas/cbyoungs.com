@@ -2,12 +2,12 @@
 .arrow{display:inline-block;width:1.15em;height:1.15em;vertical-align:middle;flex-shrink:0}
 
 /* The poster's vertical red-white-green band stays at the page edge. */
-body{padding-left:18px}
-body::before{content:"";position:fixed;z-index:30;left:0;top:0;bottom:0;width:18px;pointer-events:none;background:linear-gradient(to bottom,var(--red) 0 33.333%,#fff 33.333% 66.666%,var(--green) 66.666% 100%)}
+body{padding-left:8px}
+body::before{content:"";position:fixed;z-index:30;left:0;top:0;bottom:0;width:8px;pointer-events:none;background:linear-gradient(to bottom,var(--red) 0 33.333%,#fff 33.333% 66.666%,var(--green) 66.666% 100%)}
 .hero{background:var(--paper)}
 footer{background:var(--paper);border-top:1px solid #ffffff26}
 .ticker,.value-number{font-weight:800}
-@media(max-width:760px){body{padding-left:8px}body::before{width:8px}h1{font-size:clamp(43px,10.5vw,80px)}.email{font-size:clamp(19px,6vw,25px)}}
+@media(max-width:760px){body{padding-left:4px}body::before{width:4px}h1{font-size:clamp(43px,10.5vw,80px)}.email{font-size:clamp(19px,6vw,25px)}}
 @media(max-width:760px){.values{grid-template-columns:repeat(3,minmax(0,1fr))}.values>div{min-width:0}.value-number{font-size:clamp(16px,4.7vw,21px)}.moments h2,.join h2{font-size:clamp(37px,10.5vw,49px)}.about-copy,.join-grid>div{min-width:0}.section-label>span{min-width:0}}
 /* Poster-style titles and square email frame. */
 h1,h2,h3,.value-number{font-family:var(--font);font-weight:900;text-transform:uppercase}
@@ -110,8 +110,8 @@ footer>span{font-family:"nexa-rust-slab-black-2",var(--font);font-weight:900;fon
 html{scroll-padding-top:140px}
 .header{position:relative;z-index:20;background:#000}
 /* The frost fades into the page instead of ending at the navigation edge. */
-.top-frost{position:fixed;top:0;left:18px;right:0;height:180px;z-index:19;pointer-events:none;opacity:var(--glass-progress,0);background:linear-gradient(180deg,#0008,transparent);-webkit-backdrop-filter:blur(28px);backdrop-filter:blur(28px);-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,.8) 48%,rgba(0,0,0,.35) 75%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,.8) 48%,rgba(0,0,0,.35) 75%,transparent 100%)}
-@media(max-width:760px){.top-frost{left:8px;height:155px}}
+.top-frost{position:fixed;top:0;left:8px;right:0;height:180px;z-index:19;pointer-events:none;opacity:var(--glass-progress,0);background:linear-gradient(180deg,#0008,transparent);-webkit-backdrop-filter:blur(28px);backdrop-filter:blur(28px);-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,.8) 48%,rgba(0,0,0,.35) 75%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,.8) 48%,rgba(0,0,0,.35) 75%,transparent 100%)}
+@media(max-width:760px){.top-frost{left:4px;height:155px}}
 
 /* Navigation stays in document flow; the frost is a separate overlay. */
 html,body{overscroll-behavior-y:none}
