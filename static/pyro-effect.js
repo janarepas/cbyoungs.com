@@ -9,18 +9,18 @@
   const createParticle = (scattered = false) => ({
     x: Math.random() * width,
     y: scattered ? Math.random() * height * 0.8 : -8,
-    speed: 16 + Math.random() * 30,
+    speed: 24 + Math.random() * 40,
     drift: (Math.random() - 0.5) * 15,
-    radius: 0.5 + Math.random() * 1.1,
+    radius: 0.6 + Math.random() * 1.35,
     phase: Math.random() * Math.PI * 2,
-    brightness: 0.25 + Math.random() * 0.5
+    brightness: 0.4 + Math.random() * 0.55
   });
   // Soft overlapping lobes form drifting smoke, using the site's exact red.
   const createCloud = (scattered = false) => ({
     x: Math.random() * width,
-    y: scattered ? Math.random() * height * 0.6 - 60 : -140,
+    y: scattered ? Math.random() * height * 0.35 - 80 : -140,
     radius: 100 + Math.random() * 140,
-    speed: 5 + Math.random() * 7,
+    speed: 18 + Math.random() * 20,
     phase: Math.random() * Math.PI * 2,
     lobes: Array.from({ length: 5 }, () => ({ x: Math.random() - 0.5, y: Math.random() - 0.5, size: 0.4 + Math.random() * 0.5 }))
   });
@@ -32,8 +32,8 @@
     canvas.width = Math.round(width * ratio);
     canvas.height = Math.round(height * ratio);
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    clouds = Array.from({ length: width < 760 ? 6 : 11 }, () => createCloud(true));
-    particles = Array.from({ length: width < 760 ? 16 : 34 }, () => createParticle(true));
+    clouds = Array.from({ length: width < 760 ? 9 : 16 }, () => createCloud(true));
+    particles = Array.from({ length: width < 760 ? 40 : 90 }, () => createParticle(true));
   };
   const draw = time => {
     if (!lastFrame) lastFrame = time;
@@ -54,8 +54,8 @@
         const y = cloud.y + lobe.y * cloud.radius;
         const radius = cloud.radius * lobe.size;
         const gradient = context.createRadialGradient(x, y, 0, x, y, radius);
-        gradient.addColorStop(0, `rgba(226,37,53,${0.15 * opacity})`);
-        gradient.addColorStop(0.45, `rgba(226,37,53,${0.075 * opacity})`);
+        gradient.addColorStop(0, `rgba(226,37,53,${0.24 * opacity})`);
+        gradient.addColorStop(0.45, `rgba(226,37,53,${0.12 * opacity})`);
         gradient.addColorStop(1, 'rgba(226,37,53,0)');
         context.fillStyle = gradient;
         context.fillRect(x - radius, y - radius, radius * 2, radius * 2);

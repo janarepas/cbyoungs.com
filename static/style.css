@@ -173,11 +173,11 @@ html,body{overscroll-behavior-y:none}
 .ticker .ticker-dot{display:block;flex:0 0 14px;width:14px;height:14px;border-radius:50%;background:var(--red)}
 @media(max-width:760px){.ticker .ticker-dot{flex-basis:10px;width:10px;height:10px}}
 /* Red smoke and orange embers over a continuous hero photograph. */
-.pyro-effect{position:absolute;top:0;left:8px;right:0;height:450px;z-index:18;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(#000 0%,#000b 60%,transparent 100%);mask-image:linear-gradient(#000 0%,#000b 60%,transparent 100%)}
+.pyro-effect{position:absolute;top:0;left:8px;right:0;height:600px;z-index:18;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(#000 0%,#000b 60%,transparent 100%);mask-image:linear-gradient(#000 0%,#000b 60%,transparent 100%)}
 .pyro-effect canvas{position:absolute;inset:0;width:100%;height:100%}
 .header{position:absolute;top:0;left:8px;right:0;background:transparent}
 .hero{min-height:984px;height:calc(100svh + 12px);max-height:none}
 .hero-content{padding-top:364px}
 @media(max-width:1100px){.hero{min-height:796px;height:calc(100svh + 24px)}.hero-content{padding-top:296px}}
-@media(max-width:760px){.header{left:4px}.pyro-effect{left:4px;height:360px}.hero{min-height:826px;height:auto}.hero-content{padding-top:296px}}
+@media(max-width:760px){.header{left:4px}.pyro-effect{left:4px;height:460px}.hero{min-height:826px;height:auto}.hero-content{padding-top:296px}}
 @media(prefers-reduced-motion:reduce){.pyro-effect canvas{display:none}}
