@@ -46,7 +46,7 @@ body,.header,.hero,.moments,.join,.ticker,footer{background-color:#000}
 .header nav{grid-column:3;justify-self:end;gap:20px}
 .header::before,footer::before{content:none}
 footer{border-top:1px solid #ffffff26}
-.hero-shade{background:linear-gradient(180deg,#0008,#0009 55%,#000 100%)}
+.hero-shade{background:linear-gradient(180deg,#000 0%,#000e 12%,#0008 35%,#0009 65%,#000 100%)}
 @media(max-width:900px){.header{height:auto;min-height:164px;grid-template-columns:1fr;justify-items:center;gap:8px;padding-block:12px 20px}.header .brand,.header nav{grid-column:1;justify-self:center}.header nav>a:not(.nav-cta){display:block}.brand-logo{width:120px;height:120px}.header nav{gap:22px}.header .nav-cta{padding:10px 13px}}
 
 /* Oversized crest overlaps the hero; use the same artwork in the footer. */
