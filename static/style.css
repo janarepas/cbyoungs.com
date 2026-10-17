@@ -62,3 +62,6 @@ footer>a:last-child{grid-column:3;grid-row:1;justify-self:end}
 @media(max-width:1100px){.header{height:116px;grid-template-columns:1fr;padding:12px 5% 0;align-items:start}.header nav{grid-column:1;justify-self:center;gap:20px}.header nav>a:not(.nav-cta){display:block}.header .brand{top:52px}.brand-logo{width:220px;height:220px}.hero-content{padding-top:180px}}
 @media(max-width:760px){footer{grid-template-columns:1fr;justify-items:center;gap:20px}.footer-brand{grid-column:1;grid-row:1}footer>a:last-child{grid-column:1;grid-row:2;justify-self:center}.footer-logo{width:140px;height:140px}}
 .header .brand{grid-column:auto;grid-row:auto}
+
+/* Larger vertical motto using the display slab family. */
+.hero-side{font-family:"nexa-rust-slab-black-2",var(--font);font-weight:900;font-size:clamp(12px,1.15vw,17px);letter-spacing:1.5px;top:50%;transform:translateY(-50%);right:24px}
