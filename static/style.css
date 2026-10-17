@@ -116,3 +116,8 @@ html{scroll-padding-top:140px}
 /* Navigation stays in document flow; the frost is a separate overlay. */
 html,body{overscroll-behavior-y:none}
 .header{position:relative;top:auto;left:auto;right:auto}
+
+/* Readable Nexa labels on the photographs. */
+.gallery figcaption>span{font-family:var(--font);font-weight:700;font-size:clamp(18px,1.65vw,25px);line-height:1.35;letter-spacing:.7px;color:#fff;text-shadow:0 2px 12px #000;margin-bottom:16px}
+.gallery-main figcaption>span{font-size:clamp(22px,2.2vw,34px)}
+@media(max-width:760px){.gallery figcaption>span{font-size:16px;letter-spacing:.3px;margin-bottom:12px}.gallery-main figcaption>span{font-size:22px}}
