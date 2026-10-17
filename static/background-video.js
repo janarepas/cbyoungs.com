@@ -1,22 +1,16 @@
 (() => {
   const section = document.querySelector('#rolunk');
   const frame = section?.querySelector('.about-video iframe');
-  const toggle = section?.querySelector('.video-toggle');
-  if (!frame || !toggle) return;
+  if (!frame) return;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const startSeconds = 30;
   const trimEndSeconds = 15;
   let started = false;
-  let manuallyChosen = false;
   let player;
   let ready = false;
   let initializing = false;
   let loopTimer;
   let lastSeek = -Infinity;
-  const updateButton = () => {
-    toggle.textContent = started ? 'HÁTTÉRVIDEÓ KIKAPCSOLÁSA' : 'HÁTTÉRVIDEÓ INDÍTÁSA';
-    toggle.setAttribute('aria-pressed', String(started));
-  };
   const clipStart = duration => Math.min(startSeconds, Math.max(0, duration - trimEndSeconds - 1));
   const restartClip = () => {
     const duration = player.getDuration();
@@ -72,23 +66,18 @@
       initializing = false;
       started = false;
       frame.removeAttribute('src');
-      updateButton();
+
     }
   };
   const setVideo = playing => {
     started = playing;
-    updateButton();
+
     if (started && !initializing) initialize();
     applyPlayback();
   };
-  toggle.hidden = false;
-  toggle.addEventListener('click', () => {
-    manuallyChosen = true;
-    setVideo(!started);
-  });
   const observer = new IntersectionObserver(entries => {
     if (!entries.some(entry => entry.isIntersecting)) return;
-    if (!reducedMotion.matches && !manuallyChosen) setVideo(true);
+    if (!reducedMotion.matches) setVideo(true);
     observer.disconnect();
   }, { threshold: 0.1 });
   observer.observe(section);

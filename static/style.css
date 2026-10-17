@@ -119,14 +119,10 @@ nav a,footer>a:last-child{text-transform:uppercase}
 .about-copy>p:not(.lead){color:#fff;text-shadow:0 2px 12px #000}
 .about .section-label,.about .values>div>span:last-child{color:#e2e2e2;text-shadow:0 1px 8px #000}
 .about .values,.about .values>div{border-color:#ffffff40}
-.video-toggle{display:block;margin:28px auto 0;padding:12px 20px;border:1px solid #ffffff70;background:#0009;color:#fff;font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:.6px;cursor:pointer}
-.video-toggle[hidden]{display:none}
-.video-toggle:hover{border-color:var(--red);background:var(--red)}
-.video-toggle:focus-visible{outline:2px solid var(--green);outline-offset:4px}
 
 /* Prominent footer motto in the same Rust display family. */
-footer>span{font-family:"nexa-rust-slab-black-2",var(--font);font-weight:900;font-size:clamp(15px,1.5vw,22px);line-height:1.5;letter-spacing:.6px;color:#fff}
-@media(max-width:760px){footer>span{display:block;grid-column:1;grid-row:2;text-align:center;font-size:clamp(14px,4vw,18px)}footer>a:last-child{grid-row:3}}
+footer>span{font-family:"nexa-rust-slab-black-2",var(--font);font-weight:900;font-size:clamp(11px,.95vw,14px);line-height:1.5;letter-spacing:.6px;color:#fff}
+@media(max-width:760px){footer>span{display:block;grid-column:1;grid-row:2;text-align:center;font-size:clamp(11px,3vw,13px)}footer>a:last-child{grid-row:3}}
 
 /* Use the Rust display face throughout the photo captions. */
 .gallery h3,.gallery figcaption>span{font-family:"nexa-rust-slab-black-2",var(--font);font-weight:900;font-style:normal}
