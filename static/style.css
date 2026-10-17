@@ -23,3 +23,16 @@ h1,h2,h3,.value-number{font-family:var(--font);font-weight:900;text-transform:up
 .hero-content h1{font-family:var(--font);font-weight:900;text-transform:uppercase}
 .hero-copy{margin-left:auto;margin-right:auto}
 @media(max-width:760px){.hero-content{padding:40px 6% 100px}}
+/* Rough, painted navigation and footer bands. */
+.header,footer{position:relative;isolation:isolate;background:transparent;color:#fff;border:0}
+.header{z-index:2}
+.header::before,footer::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:-6px 0 -14px;background:var(--red);-webkit-mask:url('/static/paint-strip.svg') center/100% 100% no-repeat;mask:url('/static/paint-strip.svg') center/100% 100% no-repeat}
+footer::before{inset:-14px 0 -4px;background:#26714d}
+.header .monogram>span{color:#fff}
+.header .brand-name{border-left-color:#ffffff70}
+.header .nav-cta{border-color:#ffffff90}
+.header nav>a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px}
+.header .nav-cta:hover{background:#ffffff20}
+.header a:focus-visible,footer a:focus-visible{outline-color:#fff}
+footer>span,.footer-brand>span,footer>a:last-child{color:#ffffffdc}
+footer>a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px}
