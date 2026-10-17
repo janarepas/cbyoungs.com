@@ -114,7 +114,7 @@ nav a,footer>a:last-child{text-transform:uppercase}
 /* Decorative video stays behind a dark scrim and readable text. */
 .about{position:relative;isolation:isolate;overflow:hidden}
 .about-video{position:absolute;inset:0;z-index:-2;overflow:hidden;pointer-events:none;container-type:size;background:#000}
-.about-video iframe{position:absolute;top:50%;left:50%;width:max(100cqw,177.78cqh);height:max(100cqh,56.25cqw);transform:translate(-50%,-50%);border:0;pointer-events:none}
+.about-video iframe{position:absolute;top:50%;left:50%;width:max(calc(100cqw + 360px),calc(177.78cqh + 360px));height:max(calc(100cqh + 202.5px),calc(56.25cqw + 202.5px));transform:translate(-50%,-50%);border:0;pointer-events:none}
 .about::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,#000e,#000c 25%,#000c 75%,#000e)}
 .about-copy>p:not(.lead){color:#fff;text-shadow:0 2px 12px #000}
 .about .section-label,.about .values>div>span:last-child{color:#e2e2e2;text-shadow:0 1px 8px #000}
