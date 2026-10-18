@@ -15,14 +15,50 @@
     phase: Math.random() * Math.PI * 2,
     brightness: 0.4 + Math.random() * 0.55
   });
-  // Soft overlapping lobes form drifting smoke, using the site's exact red.
+  // Cache irregular translucent smoke textures instead of drawing flat circles.
+  const smokeTextures = Array.from({ length: 4 }, () => {
+    const sprite = document.createElement('canvas');
+    sprite.width = sprite.height = 192;
+    const ctx = sprite.getContext('2d');
+    const image = ctx.createImageData(192, 192);
+    const grids = [6, 12, 24, 48].map(size => ({ size, values: Float32Array.from({ length: (size + 1) ** 2 }, () => Math.random()) }));
+    const smooth = value => value * value * (3 - 2 * value);
+    for (let y = 0; y < 192; y++) for (let x = 0; x < 192; x++) {
+      let noise = 0;
+      grids.forEach(({ size, values }, octave) => {
+        const gx = x / 192 * size, gy = y / 192 * size;
+        const ix = Math.floor(gx), iy = Math.floor(gy);
+        const fx = smooth(gx - ix), fy = smooth(gy - iy), stride = size + 1;
+        const a = values[iy * stride + ix], b = values[iy * stride + ix + 1];
+        const c = values[(iy + 1) * stride + ix], d = values[(iy + 1) * stride + ix + 1];
+        noise += ((a + (b - a) * fx) * (1 - fy) + (c + (d - c) * fx) * fy) * [0.53, 0.27, 0.13, 0.07][octave];
+      });
+      const radius = Math.hypot((x - 96) / 96, (y - 96) / 96);
+      const density = Math.pow(Math.max(0, 1 - radius), 1.1) * Math.max(0, noise - 0.24) * 1.8;
+      const offset = (y * 192 + x) * 4;
+      image.data[offset] = 226;
+      image.data[offset + 1] = 37;
+      image.data[offset + 2] = 53;
+      image.data[offset + 3] = Math.min(255, density * 255);
+    }
+    ctx.putImageData(image, 0, 0);
+    const shadow = document.createElement('canvas');
+    shadow.width = shadow.height = 192;
+    const shadowContext = shadow.getContext('2d');
+    shadowContext.drawImage(sprite, 0, 0);
+    shadowContext.globalCompositeOperation = 'source-in';
+    shadowContext.fillStyle = '#000';
+    shadowContext.fillRect(0, 0, 192, 192);
+    return { red: sprite, shadow };
+  });
   const createCloud = (scattered = false) => ({
     x: Math.random() * width,
-    y: scattered ? Math.random() * height * 0.35 - 80 : -140,
-    radius: 100 + Math.random() * 140,
-    speed: 18 + Math.random() * 20,
+    y: scattered ? Math.random() * height * 0.45 - 100 : -160,
+    radius: 140 + Math.random() * 150,
+    speed: 9 + Math.random() * 12,
     phase: Math.random() * Math.PI * 2,
-    lobes: Array.from({ length: 5 }, () => ({ x: Math.random() - 0.5, y: Math.random() - 0.5, size: 0.4 + Math.random() * 0.5 }))
+    texture: Math.floor(Math.random() * smokeTextures.length),
+    lobes: Array.from({ length: 5 }, () => ({ x: Math.random() - 0.5, y: Math.random() - 0.5, size: 0.45 + Math.random() * 0.55, phase: Math.random() * Math.PI * 2 }))
   });
   const resize = () => {
     const rect = layer.getBoundingClientRect();
@@ -33,7 +69,7 @@
     canvas.height = Math.round(height * ratio);
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
     clouds = Array.from({ length: width < 760 ? 9 : 16 }, () => createCloud(true));
-    particles = Array.from({ length: width < 760 ? 40 : 90 }, () => createParticle(true));
+    particles = Array.from({ length: width < 760 ? 48 : 110 }, () => createParticle(true));
   };
   const draw = time => {
     if (!lastFrame) lastFrame = time;
@@ -50,15 +86,21 @@
       if (cloud.y - cloud.radius > height) { clouds[index] = createCloud(); return; }
       const opacity = Math.max(0, 1 - Math.max(0, cloud.y) / height);
       cloud.lobes.forEach(lobe => {
-        const x = cloud.x + lobe.x * cloud.radius;
-        const y = cloud.y + lobe.y * cloud.radius;
+        const roll = Math.sin(time / 9000 + cloud.phase + lobe.phase);
+        const x = cloud.x + lobe.x * cloud.radius + roll * 14;
+        const y = cloud.y + lobe.y * cloud.radius + Math.cos(time / 11000 + lobe.phase) * 10;
         const radius = cloud.radius * lobe.size;
-        const gradient = context.createRadialGradient(x, y, 0, x, y, radius);
-        gradient.addColorStop(0, `rgba(226,37,53,${0.24 * opacity})`);
-        gradient.addColorStop(0.45, `rgba(226,37,53,${0.12 * opacity})`);
-        gradient.addColorStop(1, 'rgba(226,37,53,0)');
-        context.fillStyle = gradient;
-        context.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+        const texture = smokeTextures[cloud.texture];
+        context.save();
+        context.translate(x, y);
+        context.rotate(roll * 0.16);
+        context.scale(1.15, 0.9);
+        // Soft dark folds lend depth; the red remains the exact brand color.
+        context.globalAlpha = 0.20 * opacity;
+        context.drawImage(texture.shadow, -radius + 20, -radius + 20, radius * 2, radius * 2);
+        context.globalAlpha = 0.48 * opacity * (0.9 + roll * 0.1);
+        context.drawImage(texture.red, -radius, -radius, radius * 2, radius * 2);
+        context.restore();
       });
     });
     context.globalCompositeOperation = 'lighter';
