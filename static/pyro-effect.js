@@ -6,6 +6,7 @@
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let width = 0, height = 0, particles = [], clouds = [], animation = 0, lastFrame = 0;
   let visible = true;
+  let smokeAge = 0;
   const createParticle = (scattered = false) => ({
     x: Math.random() * width,
     y: scattered ? Math.random() * height * 0.8 : -8,
@@ -76,6 +77,9 @@
     if (time - lastFrame < 32) { animation = requestAnimationFrame(draw); return; }
     const delta = Math.min((time - lastFrame) / 1000, 0.06);
     lastFrame = time;
+    smokeAge += delta;
+    const intro = Math.min(smokeAge / 10, 1);
+    const smokeStrength = 0.75 + 0.25 * intro * intro * (3 - 2 * intro);
     context.clearRect(0, 0, width, height);
     context.globalCompositeOperation = 'source-over';
     context.shadowBlur = 0;
@@ -96,9 +100,9 @@
         context.rotate(roll * 0.16);
         context.scale(1.15, 0.9);
         // Soft dark folds lend depth; the red remains the exact brand color.
-        context.globalAlpha = 0.20 * opacity;
+        context.globalAlpha = 0.20 * opacity * smokeStrength;
         context.drawImage(texture.shadow, -radius + 20, -radius + 20, radius * 2, radius * 2);
-        context.globalAlpha = 0.48 * opacity * (0.9 + roll * 0.1);
+        context.globalAlpha = 0.48 * opacity * smokeStrength * (0.9 + roll * 0.1);
         context.drawImage(texture.red, -radius, -radius, radius * 2, radius * 2);
         context.restore();
       });
