@@ -1,7 +1,7 @@
 (() => {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const elements = [...document.querySelectorAll(
-    '.section-label,.about-grid,.values>div,.moments-heading,.gallery figure,.join-grid>h2,.join-grid>div,footer>a,footer>span'
+    '.section-label,.brigade-intro>div,.community-line,.chapter-link,.about-grid,.values>div,.moments-heading,.gallery figure,.join-grid>h2,.join-grid>div,footer>a,footer>span'
   )];
   if ('IntersectionObserver' in window && !reducedMotion.matches) {
     const observer = new IntersectionObserver(entries => {
