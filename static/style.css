@@ -181,3 +181,5 @@ html,body{overscroll-behavior-y:none}
 @media(max-width:1100px){.hero{min-height:796px;height:calc(100svh + 24px)}.hero-content{padding-top:296px}}
 @media(max-width:760px){.header{left:4px}.pyro-effect{left:4px;height:460px}.hero{min-height:826px;height:auto}.hero-content{padding-top:296px}}
 @media(prefers-reduced-motion:reduce){.pyro-effect canvas{display:none}}
+/* Fine static film grain on the hero photograph, beneath crisp text and logos. */
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('/static/film-grain.svg') repeat;background-size:180px 180px;opacity:.16;mix-blend-mode:soft-light}
